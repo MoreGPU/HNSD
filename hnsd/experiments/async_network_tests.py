@@ -5,7 +5,7 @@ import time
 from typing import *
 
 
-from hnsd.core.structures import (
+from hnsd.network.structures import (
     PingTestResult,
     IPAddress,
     Metric,
@@ -122,6 +122,7 @@ async def fully_concurrent_tests_and_pings():
             ping=Metric(value=avg_ping, unit=Unit.SECONDS)
         )
     
+    print()
     display_ping_tests(
         local_ping_test=results['local'], 
         google_ping_test=results['google'], 
@@ -130,17 +131,17 @@ async def fully_concurrent_tests_and_pings():
 
 
 if __name__ == "__main__":
-    print("Running tests sequentially, pings concurrently:\n")
-    start_time = time.time()
-    asyncio.run(sequential_tests_concurrent_pings())
-    total_time = (time.time() - start_time)
-    print(f"\ncompleted in {total_time:.2f} seconds\n")
+    # print("Running tests sequentially, pings concurrently:\n")
+    # start_time = time.time()
+    # asyncio.run(sequential_tests_concurrent_pings())
+    # total_time = (time.time() - start_time)
+    # print(f"\ncompleted in {total_time:.2f} seconds\n")
     
-    print("\n\nRunning tests concurrently, pings sequential:\n")
-    start_time = time.time()
-    asyncio.run(per_host_concurrent_ping_test())
-    total_time = (time.time() - start_time)
-    print(f"\ncompleted in {total_time:.2f} seconds\n")
+    # print("\n\nRunning tests concurrently, pings sequential:\n")
+    # start_time = time.time()
+    # asyncio.run(per_host_concurrent_ping_test())
+    # total_time = (time.time() - start_time)
+    # print(f"\ncompleted in {total_time:.2f} seconds\n")
 
     print("\n\nRunning tests and pings concurrently:\n")
     start_time = time.time()

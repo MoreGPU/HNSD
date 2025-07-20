@@ -1,7 +1,7 @@
 from enum import Enum
 from dataclasses import dataclass
 
-from typing import Optional
+from typing import Optional, Any
 
 @dataclass
 class IPAddress:
@@ -32,7 +32,15 @@ class WifiTestResult:
     noise: Metric
     snr: Metric
     channel: Metric
-    
+
 @dataclass
 class PingTestResult:
     ping: Metric
+    unit: Optional[Unit] = None
+    name: Optional[str] = None
+    metadata: Optional[Any] = None
+
+@dataclass
+class PingTestConfig:
+    num_pings: int
+    delay: Optional[int]
