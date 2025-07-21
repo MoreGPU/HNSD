@@ -1,4 +1,4 @@
-.PHONY: venv install run clean
+.PHONY: venv install run clean gitleaks
 
 VENV_DIR := .venv
 PYTHON := $(VENV_DIR)/bin/python
@@ -11,3 +11,6 @@ install: venv
 
 clean:
 	rm -rf $(VENV_DIR) .uv
+
+gitleaks:
+	gitleaks dir
