@@ -43,4 +43,4 @@ class PingTestResult:
 @dataclass
 class PingTestConfig:
     num_pings: int
-    delay: Optional[int]
+    delay: int

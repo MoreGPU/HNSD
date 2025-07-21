@@ -31,8 +31,7 @@ def do_ping_test(
     
     results = []
     for _ in range(num_pings):
-        if delay:
-            time.sleep(delay)
+        time.sleep(delay)
         results.append(ping(address.value))
     
     avg_ping = sum(results) / len(results)
@@ -54,7 +53,7 @@ async def do_ping_test_async(
     loop = asyncio.get_running_loop()
     return await loop.run_in_executor(None, do_ping_test, address, name, config)
 
-    
+
 async def do_all_ping_tests(config: PingTestConfig):
     
     futures = asyncio.gather(
