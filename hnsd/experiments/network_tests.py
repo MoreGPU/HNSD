@@ -1,3 +1,4 @@
+import asyncio
 import subprocess
 import re
 
@@ -5,9 +6,7 @@ from ping3 import ping
 import netifaces
 import speedtest
 
-import asyncio
-
-from hnsd.core.structures import (
+from hnsd.network.structures import (
     SpeedTestResult,
     PingTestResult,
     WifiTestResult,
