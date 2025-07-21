@@ -1,5 +1,6 @@
 import asyncio
 from collections import defaultdict
+import os
 from ping3 import ping
 import time
 from typing import *
@@ -12,7 +13,7 @@ from hnsd.network.structures import (
     Unit
 )
 
-LOCAL_ROUTER = IPAddress("192.168.0.1")
+LOCAL_ROUTER = IPAddress(os.getenv("LOCAL_IP"))
 GOOGLE_DNS = IPAddress("8.8.8.8")
 CLOUDFLARE = IPAddress("1.1.1.1")    
 

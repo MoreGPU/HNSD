@@ -1,4 +1,5 @@
 import asyncio
+import os
 import subprocess
 import re
 
@@ -63,7 +64,7 @@ def do_wifi_test() -> WifiTestResult:
 
     
 if __name__ == "__main__":
-    LOCAL_ROUTER = IPAddress("192.168.0.1")
+    LOCAL_ROUTER = IPAddress(os.getenv("LOCAL_IP"))
     GOOGLE_DNS = IPAddress("8.8.8.8")
     CLOUDFLARE = IPAddress("1.1.1.1")
     
