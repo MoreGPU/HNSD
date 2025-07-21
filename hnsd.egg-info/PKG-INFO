@@ -7,5 +7,6 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: netifaces>=0.11.0
 Requires-Dist: ping3>=4.0.8
+Requires-Dist: python-dotenv>=1.1.1
 Requires-Dist: speedtest>=0.0.1
 Dynamic: license-file
