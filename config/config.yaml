@@ -1,0 +1,11 @@
+test_log_path: "./data/ping_test.log"
+ping_log_path: "./data/stream.log"
+hosts:
+  - name: local
+    address: 192.168.0.1
+  - name: google
+    address: 8.8.8.8
+  - name: cloudflare
+    address: 1.1.1.1
+num_pings: 10
+timeout: 0

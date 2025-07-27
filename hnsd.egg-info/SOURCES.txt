@@ -7,9 +7,9 @@ hnsd.egg-info/SOURCES.txt
 hnsd.egg-info/dependency_links.txt
 hnsd.egg-info/requires.txt
 hnsd.egg-info/top_level.txt
+hnsd/entities/ping_result.py
 hnsd/experiments/async_network_tests.py
 hnsd/experiments/network_tests.py
-hnsd/network/__init__.py
-hnsd/network/ping.py
-hnsd/network/structures.py
-hnsd/network/visualization.py
+hnsd/services/__init__.py
+hnsd/services/log_writer.py
+hnsd/services/ping_service.py

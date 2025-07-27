@@ -1,0 +1,11 @@
+log_path: "/var/log/ping_monitor/ping_stream.log"
+hosts:
+  - name: local
+    address: 192.168.1.1
+  - name: google
+    address: 8.8.8.8
+  - name: cloudflare
+    address: 1.1.1.1
+interval: 10
+num_pings: 5
+timeout: 1
