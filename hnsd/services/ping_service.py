@@ -36,7 +36,7 @@ def ping_once(address: str, logger: Optional[LogWriter]=None) -> PingResult:
     )
     
     if logger:
-        logger.write(result.to_json())
+        logger.info(result.to_json())
     
     return result
 
@@ -76,7 +76,7 @@ def do_ping_test(
     )
     
     if test_logger:
-        test_logger.write(results.to_json())
+        test_logger.info(results.to_json())
     
     return results
     
@@ -95,6 +95,6 @@ async def do_ping_test_async(
     )
      
     if test_logger:
-        test_logger.write(results.to_json())
+        test_logger.info(results.to_json())
     
     return results

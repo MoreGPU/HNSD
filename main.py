@@ -53,9 +53,11 @@ async def main():
     test_log_path = args.test_log if args.test_log else Path(config.get("test_log_path", "/var/log/ping_test.log"))  
     ping_log_path = args.ping_log if args.ping_log else Path(config.get("ping_log_path", "/var/log/ping_stream.log"))  
     
-    test_logger = LogWriter(log_path=test_log_path)
-    ping_logger = LogWriter(log_path=ping_log_path)
+    from hnsd.services.log_writer import setup_logger
     
+    test_logger = setup_logger("test_logger", test_log_path)
+    ping_logger = setup_logger("ping_logger", ping_log_path)
+     
     hosts = [host["name"] for host in config["hosts"]]
     addresses = [addresses["address"] for addresses in config["hosts"]]
     num_pings = [config["num_pings"] for _ in range(len(hosts))]

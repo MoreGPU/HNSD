@@ -14,6 +14,7 @@ class Unit(str, Enum):
 
 @dataclass
 class PingResult:
+    host: str
     address: str
     success: bool
     latency: Optional[float]  # None if failed
