@@ -16,7 +16,7 @@ from hnsd.entities.ping_result import (
     Unit
 )
 
-def ping_once(address: str, logger: Optional[LogWriter]=None) -> PingResult:    
+def ping_once(host: str, address: str, logger: Optional[LogWriter]=None) -> PingResult:    
     try:
         latency = ping(address)
         success = latency is not None
@@ -27,6 +27,7 @@ def ping_once(address: str, logger: Optional[LogWriter]=None) -> PingResult:
         error = str(e)
     
     result = PingResult(
+        host=host,
         address=address,
         success=success,
         latency=latency,
@@ -46,7 +47,7 @@ def build_ping_test_results(results: List[PingResult], config: PingTestConfig) -
     avg_latency = mean(successful) if successful else None
     success_rate = len(successful) / len(results) * 100
     return PingTestResult(
-        host=config.host,
+        host_name=config.host_name,
         address=config.address,
         unit=Unit.SECONDS,
         average_latency=avg_latency,
@@ -61,13 +62,14 @@ def do_ping_test(
     test_logger: Optional[LogWriter] = None,
     ping_logger: Optional[LogWriter] = None
 ) -> PingTestResult:
+    host_name = config.host_name
     address = config.address
     num_pings = config.num_pings
     timeout = config.timeout
     
     results = []
     for _ in range(num_pings):
-        results.append(ping_once(address, ping_logger))
+        results.append(ping_once(host_name, address, ping_logger))
         time.sleep(timeout)
      
     results = build_ping_test_results(

@@ -27,14 +27,14 @@ class PingResult:
     
 @dataclass
 class PingTestConfig:
-    host: str
+    host_name: str
     address: str
     num_pings: int
     timeout: int
     
 @dataclass
 class PingTestResult:
-    host: str
+    host_name: str
     address: str
     unit: Unit
     average_latency: Optional[float]  # mean of successful pings

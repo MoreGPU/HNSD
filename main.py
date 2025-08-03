@@ -26,7 +26,7 @@ async def run_pings(configs: List[PingTestConfig], test_logger: LogWriter, ping_
     results = await asyncio.gather(*futures)
     
     for result in results:
-        print(f"{result.host}: {result.average_latency} {result.unit.value}")
+        print(f"{result.host_name}: {result.average_latency} {result.unit.value}")
 
 
 async def main():
@@ -67,7 +67,7 @@ async def main():
     
     ping_configs = [
         PingTestConfig(
-            host=host, 
+            host_name=host, 
             address=address, 
             num_pings=num_pings, 
             timeout=timeout
