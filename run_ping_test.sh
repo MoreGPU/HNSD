@@ -4,4 +4,4 @@
 source .venv/bin/activate
 
 # Run the Python script
-.venv/bin/python3 main.py --config ./config/config.yaml
+.venv/bin/python3.12 main.py --config ./config/config.prod.yaml
